@@ -156,8 +156,8 @@ body {
 /* Styles pour les petits écrans */
 @media (max-width: 768px) {
     .text-container img.logo {
-        height: auto; /* Ajuste la taille du logo */
-        max-height: 70%; /* Limite la hauteur pour qu'il soit visible en entier */
+        display: flex;
+        width: 320px;
     }
 
     .watch {
