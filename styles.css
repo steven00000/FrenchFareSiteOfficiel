@@ -1,0 +1,270 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/* #hero section */
+#hero {
+    position: relative; /* Parent relatif pour le positionnement de la flèche */
+    width: 100%;
+    height: 100vh; /* Hauteur pleine pour cette section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.text-container {
+    position: absolute;
+    z-index: 1; /* Met le logo derrière */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    opacity: 0; /* Début invisible */
+    transform: scale(0.7); /* Taille initiale réduite */
+    animation: logoAnimation 1.5s forwards; /* Applique l'animation */
+}
+
+.text-container img.logo {
+    height: 40%;
+}
+
+.watch-container {
+    z-index: 2; /* Met le t-shirt au-dessus du logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; /* Début invisible */
+    transform: scale(0.8); /* Taille initiale réduite */
+    animation: logoAnimation 1.5s forwards; /* Applique l'animation */
+}
+
+.watch {
+    width: 50%; /* Ajuste selon la taille de l'image */
+    height: auto;
+    display: block;
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px; /* Ajuste selon la distance du bas de l'écran */
+    left: 50%;
+    transform: translateX(-50%); /* Centre la flèche */
+    font-size: 1.6rem; /* Taille de l'icône */
+    color: #000; /* Couleur de l'icône */
+    animation: bounce 1s infinite; /* Animation de rebond */
+    z-index: 1000; /* S'assure que la flèche est au-dessus des autres éléments */
+}
+.scroll-arrow:hover {
+    cursor: grab;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Hauteur du rebond */
+    }
+}
+
+@keyframes logoAnimation {
+    to {
+        opacity: 1; /* Fait apparaître le logo */
+        transform: scale(1); /* Retourne à la taille normale */
+    }
+}
+
+
+/* Section #product-display */
+#product-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.product-container {
+    display: flex;
+    max-width: 2000px; /* Largeur maximale de la section */
+    width: 100%; /* Prend toute la largeur disponible */
+}
+
+.product-container:hover{
+    .tshirt{
+        transform: scale(1.05);
+        cursor: grab;
+    }
+}
+
+.tshirt-image {
+    flex: 1 ; /* Prend une part égale de l'espace */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tshirt {
+    transition: all 0.5s ease-out;
+    max-width: 100%; /* Limite la largeur à 100% de son conteneur */
+    height: auto;
+}
+
+/* Styles pour chaque T-shirt */
+.tshirt-image {
+    flex: 1; /* Prend une part égale de l'espace */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.3s ease; /* Ajoute une transition pour le flou */
+}
+
+/* Taille des T-shirts */
+.tshirt {
+    transition: all 0.5s ease-out;
+    max-width: 100%; /* Limite la largeur à 100% de son conteneur */
+    height: auto;
+    filter: blur(3px); /* Applique le flou par défaut */
+}
+
+.center-tshirt {
+    max-width: 150%; /* Plus grand pour le T-shirt central */
+}
+
+.tshirt-image.left .tshirt,
+.tshirt-image.right .tshirt {
+    max-width: 80%; /* Plus petit pour les T-shirts à gauche et à droite */
+}
+
+/* Effet hover pour retirer le flou */
+.tshirt-image:hover .tshirt {
+    filter: blur(0); /* Retire le flou au survol */
+}
+
+/* Ajoute un espace entre les T-shirts */
+.tshirt-image {
+    margin: 0 20px; /* Espace horizontal entre les T-shirts */
+}
+
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .text-container img.logo {
+        height: auto; /* Ajuste la taille du logo */
+        max-height: 70%; /* Limite la hauteur pour qu'il soit visible en entier */
+    }
+
+    .watch {
+        width: 90%; /* Réduit la taille du t-shirt pour les très petits écrans */
+    }
+
+    .scroll-arrow {
+        font-size: 1rem; /* Réduit la taille de la flèche */
+    }
+
+    .product-container{
+        display: table-column;
+        margin-bottom: 20px;
+    }
+
+    .tshirt-image {
+        margin-bottom: 20px;
+        margin: 0 10px; /* Réduit l'espace entre les T-shirts */
+    }
+
+    .tshirt {
+        max-width: 90%; /* Limite la taille des T-shirts */
+        filter: blur(0px); /* Ajuste le flou */
+    }
+
+    .tshirt-image.left .tshirt,
+    .tshirt-image.right .tshirt {
+        max-width: 90%; /* Taille des T-shirts à gauche et à droite */
+    }
+}
+
+footer {
+    margin-top: 10px;
+    background: transparent; /* Couleur de fond */
+    padding: 20px 0; /* Espace intérieur */
+    text-align: center; /* Centrer le texte */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Éspace entre les sections */
+    flex-wrap: wrap; /* Permet au contenu de se répartir sur plusieurs lignes */
+    margin-bottom: 10px; /* Espace entre le contenu et le bas du footer */
+}
+
+.footer-section {
+    flex: 1; /* Prend une part égale de l'espace */
+    min-width: 200px; /* Largeur minimale */
+    margin: 0px; /* Espace autour de chaque section */
+}
+
+.social-icon {
+    margin: 0 10px; /* Espace entre les icônes */
+    font-size: 1.5rem; /* Taille des icônes */
+    color: #333; /* Couleur des icônes */
+    transition: color 0.3s; /* Transition pour le survol */
+}
+
+.social-icon:hover {
+    color: #969696; /* Couleur au survol */
+}
+
+/* Styles pour le pop-up */
+.popup {
+    display: none; /* Cacher par défaut */
+    position: fixed; /* Position fixe */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Au-dessus des autres éléments */
+    transition: all 1s ease-out;
+}
+
+.popup-content {
+    background: #fff; /* Fond blanc pour le contenu */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px; /* Largeur maximale */
+    transition: all 1s ease-out;
+}
+
+.close-button {
+    cursor: pointer; /* Curseur en main */
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    transition: all 1s ease-out;
+}
+
+.follow-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.5s ease-out;
+}
+
+.follow-link:hover {
+    background-color: #5c5c5c; /* Couleur au survol */
+}
