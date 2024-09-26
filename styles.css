@@ -152,6 +152,45 @@ body {
     margin: 0 20px; /* Espace horizontal entre les T-shirts */
 }
 
+/* Styles pour la section des ronds de couleur */
+.color-selector {
+    display: flex;
+    flex-direction: column; /* Aligne les ronds verticalement */
+    justify-content: center;
+    align-items: center; /* Centre les ronds sous les T-shirts */
+    margin-top: 10px; /* Ajoute un peu d'espace entre l'image et les ronds */
+    filter: blur(3px);
+    transition: filter 0.3s ease;
+}
+
+.tshirt-image:hover .color-selector {
+    filter: blur(0);
+}
+
+.color-option {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 5px 0; /* Espacement vertical entre les ronds */
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.color-option.white {
+    background-color: #ffffffe1;
+}
+
+.color-option.black {
+    background-color: #000;
+}
+
+
+/* Cache les versions noires initialement */
+.black-tshirt {
+    display: none;
+}
+
+
 
 /* Styles pour les petits écrans */
 @media (max-width: 768px) {
@@ -186,6 +225,10 @@ body {
     .tshirt-image.left .tshirt,
     .tshirt-image.right .tshirt {
         max-width: 90%; /* Taille des T-shirts à gauche et à droite */
+    }
+
+    .color-selector{
+        filter: blur(0px);
     }
 }
 
