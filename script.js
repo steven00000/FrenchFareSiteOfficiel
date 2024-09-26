@@ -29,3 +29,23 @@ window.addEventListener('click', (event) => {
         popup.style.display = 'none'; // Cache le pop-up
     }
 });
+
+// Fonction pour changer la couleur du T-shirt
+document.querySelectorAll('.color-option').forEach(option => {
+    option.addEventListener('click', function() {
+        const colorPosition = this.getAttribute('data-color');
+        const version = this.getAttribute('data-version');
+
+        // Sélectionne les images correspondantes pour cette position
+        const whiteTshirt = document.getElementById(`tshirt-white-${colorPosition}`);
+        const blackTshirt = document.getElementById(`tshirt-black-${colorPosition}`);
+        
+        if (version === 'black') {
+            whiteTshirt.style.display = 'none';
+            blackTshirt.style.display = 'block';
+        } else {
+            blackTshirt.style.display = 'none';
+            whiteTshirt.style.display = 'block';
+        }
+    });
+});
