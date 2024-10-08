@@ -130,7 +130,6 @@ body {
     transition: all 0.5s ease-out;
     max-width: 100%; /* Limite la largeur à 100% de son conteneur */
     height: auto;
-    filter: blur(3px); /* Applique le flou par défaut */
 }
 
 .center-tshirt {
@@ -159,7 +158,6 @@ body {
     justify-content: center;
     align-items: center; /* Centre les ronds sous les T-shirts */
     margin-top: 10px; /* Ajoute un peu d'espace entre l'image et les ronds */
-    filter: blur(3px);
     transition: filter 0.3s ease;
 }
 
@@ -290,7 +288,7 @@ footer {
 
 .close-button {
     cursor: pointer; /* Curseur en main */
-    font-size: 20px;
+    font-size: 50px;
     position: absolute;
     top: 10px;
     right: 15px;
