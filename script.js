@@ -49,18 +49,3 @@ document.querySelectorAll('.color-option').forEach(option => {
         }
     });
 });
-
-function showHeart(event) {
-    var heart = document.getElementById('heart');
-    
-    // Obtenir les coordonnées du clic
-    var x = event.clientX;
-    var y = event.clientY;
-    
-    // Placer le cœur aux coordonnées du clic
-    heart.style.left = x + 'px';
-    heart.style.top = y + 'px';
-    
-    // Afficher le cœur
-    heart.style.display = 'block';
-}
